@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Lucas Cunha">
+    <title>Escolha</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            background-color: #000;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #000;
+            border: 2px solid #222;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .symbol-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            opacity: 0;
+            filter: brightness(0.2);
+            transition: opacity 0.4s ease, filter 0.4s ease;
+            pointer-events: none;
+        }
+
+        .box:hover .symbol-image,
+        .box:hover {
+            opacity: 0.4;
+        }
+
+        .box.revealed .symbol-image {
+            opacity: 1;
+            filter: brightness(1);
+        }
+
+        .box.revealed .hint {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box" onclick="toggleReveal(this)">
+            <img src="/CSS/Atividade1/Imagens/HTML.png" class="symbol-image" alt="HTML">
+        </div>
+
+        <div class="box" onclick="toggleReveal(this)">
+            <img src="/CSS/Atividade1/Imagens/CSS.png" class="symbol-image" alt="CSS">
+        </div>
+
+        <div class="box" onclick="toggleReveal(this)">
+            <img src="/CSS/Atividade1/Imagens/JS.png" class="symbol-image" alt="JavaScript">
+        </div>
+
+        <div class="box" onclick="toggleReveal(this)">
+            <img src="/CSS/Atividade1/Imagens/P.png" class="symbol-image" alt="Você">
+        </div>
+    </div>
+
+    <script>
+        function toggleReveal(box) {
+            box.classList.toggle('revealed');
+        }
+    </script>
+</body>
+
+</html>
